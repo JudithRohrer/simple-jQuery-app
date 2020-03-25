@@ -1,0 +1,158 @@
+/*
+Colors used:
+
+Text Color (black): #000
+Primary Color (Grey): #808080
+Secondary Color (Gainsboro):#DCDCDC
+
+Fonts used:
+
+font-family: 'Nunito Sans', sans-serif;
+*/
+:root {
+  --primary-color: #808080;
+  --secondary-color: #DCDCDC;
+  --dark-grey: #2b2b2b;
+  --green: #499948;
+  --white: #fff;
+  --text-color: #000;
+  --button-shadow: rgba(0, 0, 0, 0.3);
+  --modal-shadow: rgba(0, 0, 0, 0.5);
+  --font-weight-v-light: 300;
+  --font-weight-bold: 600;
+  --font-weight-v-bold: 700;
+  --font-size-v-small: 16px;
+  --font-size-small: 18px;
+  --font-size-large: 24px;
+  --font-size-v-large: 30px;
+}
+
+body {
+  font-family: 'Nunito Sans',sans-serif;
+  font-weight: var(--font-weight-v-light);
+  font-size: var(--font-size-v-small);
+  line-height: 1.6;
+  margin: 10px;
+}
+
+h1 {
+  font-size: var(--font-size-v-large);
+  font-weight: var(--font-weight-v-bold);
+}
+
+h2 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:visited {
+  color: var(--dark-grey);
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  color: var(--green);
+}
+ul {
+  width: 250px;
+  margin-top: 0px auto;
+}
+
+#logo__header {
+  height: 70px;
+}
+
+.page-header {
+  display: flex;
+  width: 100%;
+}
+
+.page-header__item {
+  flex: 0 1 200px;
+}
+
+.pokeButton {
+  width: 200px;
+  padding: 10px;
+  margin: 5px auto;
+  border-radius: 4px;
+  background-color: #DCDCDC;
+
+}
+
+.pokemon-list {
+  width: 250px;
+  list-style-type: none;
+  background-color: var(--white);
+  border-style: solid;
+  border-color: #dcdcdc;
+  border-width: 2px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--modal-shadow);
+
+  /* to show it above other content */
+  z-index: 999;
+
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto;
+
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+
+.modal {
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: var(--white);
+  padding: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.modal-close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.modal h1 {
+  margin-top: 0;
+  text-align: left;
+}
+
+.modal p {
+  margin-bottom: 0;
+}
