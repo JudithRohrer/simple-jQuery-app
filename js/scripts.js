@@ -15,12 +15,12 @@ var dogRepository = (function (){
 
   //creates a button for every dog added to the dogRepository
   function addListItem(dog) {
-    var $button = $('<button class="pokeButton">'+ dog.name + '</button>');
+    var $button = $('<button class="pokeButton">' + dog.name + '</button>');
     var $listItem = $('<li></li>');
     $listItem.append($button);
     $dogList.append($listItem);
     //shows details when button is clicked
-    $button.on('click',function(event){
+    $button.on('click',function(){
       showDetails(dog);
     });
   }
@@ -32,7 +32,7 @@ var dogRepository = (function (){
   }
 
   function loadList() {
-    return $.ajax('apiUrl', {dataType: 'json'}).then(function (reponseJSON) {
+    return $.ajax(apiUrl, {dataType: 'json'}).then(function (reponseJSON) {
       json.results.each(function(item){
         var dog = {
           name: item.message,
@@ -47,7 +47,7 @@ var dogRepository = (function (){
 
   function loadDetails(item) {
     var url = item.detailsUrl;
-    return $.ajax('url', {dataType: 'json'}).then(function (responseJSON){
+    return $.ajax(url, {dataType: 'json'}).then(function (details){
       item.imageUrl = details.sprites.front_default;
 
   })
@@ -59,12 +59,12 @@ var dogRepository = (function (){
 function showModal(item) {
   $modalContainer.empty();
 
-  var modal = $('<div class="modal"></div>')
-  var closeButtonElement = $('<button class="modal-close">Close</button>');
+  var $modal = $('<div class="modal"></div>')
+  var $closeButtonElement = $('<button class="modal-close">Close</button>');
   $('.modal-close').on('click', hideModal);
 
-  var titleELement = $('<h1> item.name </h1>');
-  var imgElement = $('<img src="item.imageUrl">');
+  var $titleELement = $('<h1> item.name </h1>');
+  var $imgElement = $('<img src="item.imageUrl">');
 
   $modalContainer.append($titleElement);
   $modalContainer.append($imgElement);
