@@ -1,7 +1,7 @@
 var dogRepository = (function (){
   var repository = [];
   var apiUrl = 'https://dog.ceo/api/breeds/list/all';
-  var $dogList = $('.dog-list');
+  var $dogList = $('#dog-list');
   var $modalContainer = $('#modal-container');
 
   //ensures correct data input of repository
@@ -13,12 +13,12 @@ var dogRepository = (function (){
     return repository;
   }
 
-  //creates a button for every dog added to the pokeRepository
+  //creates a button for every dog added to the dogRepository
   function addListItem(dog) {
-    var button = $('<button class="pokeButton">'+ dog.name + '</button>');
-    var listItem = $('<li></li>');
+    var $button = $('<button class="pokeButton">'+ dog.name + '</button>');
+    var $listItem = $('<li></li>');
     $listItem.append($button);
-    $('.dog-list').append($listItem);
+    $dogList.append($listItem);
     //shows details when button is clicked
     $button.on('click',function(event){
       showDetails(dog);

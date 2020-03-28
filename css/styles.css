@@ -92,7 +92,7 @@ ul {
 
 }
 
-.pokemon-list {
+#dog-list {
   width: 250px;
   list-style-type: none;
   background-color: var(--white);
