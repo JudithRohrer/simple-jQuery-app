@@ -14,7 +14,7 @@ var dogRepository = (function (){
   }
 
   //creates a button for every dog added to the dogRepository
-  function addListItem(dog) {
+/*  function addListItem(dog) {
     var $button = $('<button class="pokeButton">' + dog.name + '</button>');
     var $listItem = $('<li></li>');
     $listItem.append($button);
@@ -29,11 +29,11 @@ var dogRepository = (function (){
     loadDetails(item).then(function(){
       showModal(item);
     });
-  }
+  }*/
 
   function loadList() {
     return $.ajax(apiUrl, {dataType: 'json'}).then(function (responseJSON) {
-      json.results.forEach(function(responseJSON){
+    /*  responseJSON.results.forEach(function(responseJSON){
         var dog = {
           name: item.message,
           deatialsUrl: item.url
@@ -41,11 +41,11 @@ var dogRepository = (function (){
         add(dog);
       });
     }).catch(function(e) {
-       console.error(e);
+       console.error(e);*/
     });
   }
 
-  function loadDetails(item) {
+/*  function loadDetails(item) {
     var url = item.detailsUrl;
     return $.ajax(url, {dataType: 'json'}).then(function (details){
       item.imageUrl = details.sprites.front_default;
@@ -87,17 +87,17 @@ var dogRepository = (function (){
     if(target === $modalContainer){
       hideModal();
     }
-  });
+  });*/
 
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem,
-    showDetails: showDetails,
-    loadList: loadList,
+/*    addListItem: addListItem,
+    showDetails: showDetails,*/
+    loadList: loadList/*,
     loadDetails: loadDetails,
     showModal: showModal,
-    hideModal: hideModal
+    hideModal: hideModal*/
   };
 
 })();
