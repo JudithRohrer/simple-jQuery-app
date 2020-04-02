@@ -56,31 +56,33 @@ var dogRepository = (function (){
     })
   }
 
-function showModal(item) {
-  $modalContainer.empty();
+  function showModal(item) {
+    $modalContainer.empty();
 
-  var $modal = $('<div class="modal"></div>')
-  var $closeButtonElement = $('<button class="modal-close">Close</button>');
-  $('.modal-close').on('click', hideModal);
+    var $modal = $('<div class="modal"></div>')
+    var $closeButtonElement = $('<button class="modal-close">Close</button>');
+    $('.modal-close').on('click', hideModal);
 
-  var $titleELement = $('<h1> item.name </h1>');
-  var $imgElement = $('<img src="item.imageUrl">');
+    var $titleELement = $('<h1> item.name </h1>');
+    var $imgElement = $('<img src="item.imageUrl">');
 
-  $modalContainer.append($titleElement);
-  $modalContainer.append($imgElement);
+    $modalContainer.append($titleElement);
+    $modalContainer.append($imgElement);
 
-  $modalContainer.classList.add('is-visible');
-}
+    $modalContainer.classList.add('is-visible');
+  }
 
-function hideModal () {
-  $modalContainer.classList.remove('is-visible');
-}
+  function hideModal () {
+    $modalContainer.classList.remove('is-visible');
+  }
+
   $('window').on('keydown', (e) => {
     if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')){
       hideModal();
     }
-});
-    $modalContainer.on('click',(e) => {
+  });
+
+  $modalContainer.on('click',(e) => {
     var target = e.target;
     if(target === $modalContainer){
       hideModal();
