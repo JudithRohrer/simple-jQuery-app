@@ -20,13 +20,31 @@ var dogRepository = (function (){
       for (item in responseJSON.message){
         console.log(item);
       }
-    });
+      $.each(responseJSON.message, function (index, item) {
+        var dog = {
+          name: item.name
+        };
+        add(dog);
+      });
+    }).catch(function(e){
+      console.error(e);
+    })
   }
+
+  function addListItem(item) {
+    var $button = $('<button class="dogButton">'+ item.name +'</button>');
+    var $listItem = $('<li></li>');
+    $listItem.append($button);
+    $dogList.append($listItem);
+
+  }
+
 
   return {
     add: add,
     getAll: getAll,
-    loadList: loadList
+    loadList: loadList,
+    addListItem: addListItem
   };
 
 })();
