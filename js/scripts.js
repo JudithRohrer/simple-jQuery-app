@@ -20,9 +20,9 @@ var dogRepository = (function (){
       for (item in responseJSON.message){
         console.log(item);
       }
-      $.each(responseJSON.message, function (index) {
+      $.each(responseJSON.message, function (key, value) {
         var dog = {
-          name: Object.keys(responseJSON.message)
+          name: (key)
         };
         add(dog);
       });
