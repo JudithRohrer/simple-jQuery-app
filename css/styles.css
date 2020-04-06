@@ -89,7 +89,11 @@ ul {
   margin: 5px auto;
   border-radius: 4px;
   background-color: #DCDCDC;
+  opacity: 0.7;
+}
 
+button:hover {
+  opacity: 1;
 }
 
 #dog-list {
