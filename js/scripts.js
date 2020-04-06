@@ -15,11 +15,6 @@ var dogRepository = (function (){
 
   function loadList() {
     return $.ajax(apiUrl, {dataType: 'json'}).then(function (responseJSON) {
-      console.log(responseJSON);
-      console.log(responseJSON.message);
-      for (item in responseJSON.message){
-        console.log(item);
-      }
       $.each(responseJSON.message, function (key, value) {
         var dog = {
           name: (key)
