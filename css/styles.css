@@ -137,6 +137,7 @@ ul {
   padding: 15px;
   width: 100%;
   max-width: 500px;
+  max-height: 500px;
 }
 
 .modal-close {
@@ -149,9 +150,18 @@ ul {
 }
 
 .modal h1 {
+  display: inline;
   margin-top: 0;
   text-align: left;
 }
+
+.modal-image {
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0 auto;
+}
+
 
 .modal p {
   margin-bottom: 0;
