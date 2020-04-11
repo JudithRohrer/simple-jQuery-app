@@ -26,16 +26,14 @@ var dogRepository = (function (){
   }
 
   function addListItem(dog) {
-    var $button = $('<button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal" data-target="#modalCenter">'+ dog.name +'</button>');
-    var $listItem = $('<li class="list-group-item"></li>');
-    $listItem.append($button);
-    $dogList.append($listItem);
+    var $button = $('<button type="button" class="btn btn-outline-dark btn-block list-group-item" data-toggle="modal" data-target="#modalCenter">'+ dog.name +'</button>');
+    $dogList.append($button);
     $button.on('click', function(event){
-      showModal(dog);
+      fetchDogImage(dog);
     });
   }
 
-  function showModal(dog) {
+  function fetchDogImage(dog) {
     var modalTitle = $("#modalTitle");
     var modalBody = $(".modalBody");
 
@@ -61,7 +59,7 @@ var dogRepository = (function (){
     getAll: getAll,
     loadList: loadList,
     addListItem: addListItem,
-    showModal: showModal
+    fetchDogImage: fetchDogImage
   };
 
 })();

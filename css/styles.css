@@ -4,8 +4,8 @@ img {
 }
 
 .modal-image {
-width: 300px;
-padding: 0 auto;
+  width: 300px;
+  padding: 0 auto;
 }
 
 .modalBody {
@@ -13,9 +13,11 @@ padding: 0 auto;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .close {
   color: white;
 }
+
 #dog-list {
   width: 250px;
   list-style-type: none;
@@ -25,5 +27,5 @@ padding: 0 auto;
 }
 
 .border-3 {
-    border-width:3px !important;
+  border-width:3px !important;
 }
