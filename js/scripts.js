@@ -2,7 +2,6 @@ var dogRepository = (function (){
   var repository = [];
   var apiUrl = 'https://dog.ceo/api/breeds/list/all';
   var $dogList = $('#dog-list');
-  var $modalContainer = $('#modal-container');
 
   //ensures correct data input of repository
   function add(breeds) {
@@ -27,8 +26,8 @@ var dogRepository = (function (){
   }
 
   function addListItem(dog) {
-    var $button = $('<button class="dogButton">'+ dog.name +'</button>');
-    var $listItem = $('<li></li>');
+    var $button = $('<button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal" data-target="#modalCenter">'+ dog.name +'</button>');
+    var $listItem = $('<li class="list-group-item"></li>');
     $listItem.append($button);
     $dogList.append($listItem);
     $button.on('click', function(event){
@@ -36,55 +35,33 @@ var dogRepository = (function (){
     });
   }
 
+  function showModal(dog) {
+    var modalTitle = $("#modalTitle");
+    var modalBody = $(".modalBody");
 
-  function showModal(dog){
-    $modalContainer.empty();
+    modalTitle.empty();
+    modalBody.empty();
 
-    var $modal = $('<div class="modal"></div>');
-    var $closeButtonElement = $('<button class="modal-close">Close</button>');
-    $closeButtonElement.on ('click', hideModal);
-
-    var $titleElement = $('<h1>'+dog.name+'</h1>');
+    var $nameElement = $('<h5>'+dog.name+'</h5>');
 
     var dogUrl = 'https://dog.ceo/api/breed/'+dog.name+'/images/random';
     $.ajax(dogUrl, {dataType: 'json'}).then(function (responseJSON){
       var $breedsImage = $('<img class="modal-image" src="' + responseJSON.message + '">');
-      $modal.append($breedsImage);
+      modalBody.append($breedsImage);
     }).catch(function(e){
       console.error(e);
     })
 
-    $modal.append($titleElement);
-    $modal.append($closeButtonElement);
-    $modalContainer.append($modal);
-    $modalContainer.addClass('is-visible');
+    modalTitle.append($nameElement);
+
   }
-
-  function hideModal () {
-    $modalContainer.removeClass('is-visible');
-  }
-
-  $(window).on('keydown', (e) => {
-    if (e.key === 'Escape' && $modalContainer.hasClass('is-visible')){
-      hideModal();
-    }
-  });
-
-  $modalContainer.on('click',(e) => {
-    var target = e.target;
-    if(target !== $modalContainer){
-      hideModal();
-      }
-    });
-
 
   return {
     add: add,
     getAll: getAll,
     loadList: loadList,
     addListItem: addListItem,
-    showModal: showModal,
-    hideModal: hideModal
+    showModal: showModal
   };
 
 })();
