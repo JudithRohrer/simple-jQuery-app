@@ -77,3 +77,20 @@ dogRepository.loadList().then(function() {
     dogRepository.addListItem(dog);
   });
 });
+
+// Search function
+$(document).ready(function() {
+  $("#myInput").on("keyup", function() {
+    var value = $(this)
+      .val()
+      .toLowerCase();
+    $("#dog-list *").filter(function() {
+      $(this).toggle(
+        $(this)
+          .text()
+          .toLowerCase()
+          .indexOf(value) > -1
+      );
+    });
+  });
+});
