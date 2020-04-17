@@ -11,7 +11,7 @@ var dogRepository = (function (){
   function getAll() {
     return repository;
   }
-
+  //fetches dog names for buttons
   function loadList() {
     return $.ajax(apiUrl, {dataType: 'json'}).then(function (responseJSON) {
       $.each(responseJSON.message, function (key, value) {
@@ -24,7 +24,7 @@ var dogRepository = (function (){
       console.error(e);
     })
   }
-
+  //creates buttons with dog names on it
   function addListItem(dog) {
     var $button = $('<button type="button" class="btn btn-outline-dark btn-block list-group-item" data-toggle="modal" data-target="#modalCenter">'
       + dog.name +'</button>');
@@ -33,7 +33,7 @@ var dogRepository = (function (){
       fetchDogImage(dog);
     });
   }
-
+  //fetches dog image for modal
   function fetchDogImage(dog) {
     var modalTitle = $("#modalTitle");
     var modalBody = $(".modalBody");
