@@ -26,7 +26,13 @@ var dogRepository = (function (){
   }
 
   function addListItem(dog) {
-    var $button = $('<button type="button" class="btn btn-outline-dark btn-block list-group-item" data-toggle="modal" data-target="#modalCenter">'+ dog.name +'</button>');
+    var $button = $(
+      '<button type="button"
+      class="btn btn-outline-dark btn-block list-group-item"
+      data-toggle="modal"
+      data-target="#modalCenter">'
+      + dog.name +'</button>'
+    );
     $dogList.append($button);
     $button.on('click', function(event){
       fetchDogImage(dog);
